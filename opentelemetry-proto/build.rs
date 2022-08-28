@@ -1,3 +1,4 @@
+use std::env;
 use std::io::Error;
 
 // Grpc related files used by tonic are generated here. Those files re-generate for each build
@@ -7,6 +8,8 @@ use std::io::Error;
 // sure they are up to date.
 
 fn main() -> Result<(), Error> {
+    env::set_var("PROTOC", protobuf_src::protoc());
+
     #[cfg(feature = "gen-tonic")]
     tonic_build::configure()
         .build_server(cfg!(feature = "build-server"))

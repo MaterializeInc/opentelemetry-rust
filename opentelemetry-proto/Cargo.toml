@@ -31,7 +31,7 @@ default = []
 full = ["gen-tonic", "gen-protoc", "traces", "logs", "metrics", "zpages", "build-server", "build-client", "with-serde"]
 
 # crates used to generate rs files
-gen-tonic = ["tonic", "tonic-build", "prost"]
+gen-tonic = ["tonic", "tonic-build", "prost", "protobuf-src"]
 gen-protoc = ["grpcio", "protobuf"]
 
 # telemetry pillars and functions
@@ -63,3 +63,4 @@ protoc-grpcio = { version = "3.0" }
 [build-dependencies]
 tonic-build = { version = "0.8.0", optional = true }
 prost-build = { version = "0.11.1", optional = true }
+protobuf-src = { version = "1.0.4", optional = true }
