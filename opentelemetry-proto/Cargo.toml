@@ -35,8 +35,8 @@ gen-tonic = ["tonic", "tonic-build", "prost", "protobuf-src"]
 gen-protoc = ["grpcio", "protobuf"]
 
 # telemetry pillars and functions
-traces = []
-metrics = []
+traces = ["opentelemetry/trace"]
+metrics = ["opentelemetry/metrics"]
 logs = []
 zpages = ["traces"]
 
@@ -50,7 +50,7 @@ grpcio = { version = "0.9", optional = true }
 tonic = { version = "0.8.0", optional = true }
 prost = { version = "0.11.0", optional = true }
 protobuf = { version = "2.18", optional = true } # todo: update to 3.0 so we have docs for generated types.
-opentelemetry = { version = "0.17", default-features = false, features = ["trace", "metrics"], path = "../opentelemetry" }
+opentelemetry = { version = "0.17", default-features = false, path = "../opentelemetry" }
 futures = { version = "0.3", default-features = false, features = ["std"] }
 futures-util = { version = "0.3", default-features = false, features = ["std"] }
 serde = { version = "1.0", optional = true }
